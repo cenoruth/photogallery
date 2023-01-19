@@ -85,13 +85,13 @@
 
             </div>
             <div class="col-md-9">
-                <div class="row g-3 infinite-container" data-masonry='{"percentPosition": true }'>
+                <div class="row g-3" data-masonry='{"percentPosition": true }'>
                     {% for photo in photos reversed %}
-                    <div class="col-md-4 infinite-item">
+                    <div class="col-md-4">
                         <div>
                             <!--<a href="{% url 'photo' photo.id %}">-->
                                 <a href="{{photo.image.url}}" data-lightbox="{{photo.image}}" data-title="{{photo.submitter}}"><img src="{{photo.image.url}}" class="card-img" alt="..."></a>
-                            <!--</a>-->
+                            <!--</a>
                             <div class="card-body">{{photo.submitter}}</div>
                             <!--
                             <div class="card-body">
@@ -101,10 +101,6 @@
                         </div>
                     </div>
                     {% endfor %}
-
-                    {% if photos.has_next %}
-                    <a class="infinite-more-link" href="?page={{ photos.next_page_number }}">More</a>
-                    {% endif %}
 
                 </div>
 
@@ -150,12 +146,12 @@
           'imageFadeDuration': 10,
         })
     </script>
-    
+    <!--
     <script>
         var infinite = new Waypoint.Infinite({
           element: $('.infinite-container')[0],
           append: '.infinite-container'
         });
-      </script>
+      </script>-->
 </body>
 </html>
