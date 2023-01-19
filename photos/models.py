@@ -12,9 +12,7 @@ class Photo(models.Model):
     submitter = models.TextField(default='anonymous')
     category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True, blank=True)
     image = models.ImageField(null=False, blank=False)
-    description = models.TextField()
-    #uploaded_time = models.DateTimeField(auto_now=True)
-    uploaded_time = models.TextField(default='test')
+    uploaded_time = models.DateTimeField(auto_now=True)
 
-    def __str__(self):
-        return self.description
+    def __int__(self):
+        return self.image

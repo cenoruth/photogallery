@@ -87,7 +87,6 @@ def addPhoto(request):
         photo = Photo.objects.create(
             submitter=data['submitter'],
             category=category,
-            #description=data['description'],
             image=image,
         )
 
