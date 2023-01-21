@@ -53,13 +53,13 @@ def gallery(request):
     else:
         photos = Photo.objects.filter(category__name=category)
 
-    #paginator = Paginator(photos, 20)
-    #try:
-    #    photos_page = paginator.page(page)
-    #except PageNotAnInteger:
-    #    photos_page = paginator.page(1)
-    #except EmptyPage:
-    #    photos_page = paginator.page(paginator.num_pages)
+    paginator = Paginator(photos, 10)
+    try:
+        photos_page = paginator.page(page)
+    except PageNotAnInteger:
+        photos_page = paginator.page(1)
+    except EmptyPage:
+        photos_page = paginator.page(paginator.num_pages)
 
     categories = Category.objects.all()
     context = {'categories': categories, 'photos': photos}
@@ -74,7 +74,7 @@ def addPhoto(request):
 
     if request.method == 'POST':
         data = request.POST
-        image = request.FILES.get('image')
+        images = request.FILES.getlist('images')
 
         if data['category'] != 'none': 
             category = Category.objects.get(id=data['category'])
@@ -83,12 +83,12 @@ def addPhoto(request):
         else:
             category = None
 
-
-        photo = Photo.objects.create(
-            submitter=data['submitter'],
-            category=category,
-            image=image,
-        )
+        for image in images:
+            photo = Photo.objects.create(
+                submitter=data['submitter'],
+                category=category,
+                image=image,
+            )
 
         return redirect('gallery')
 

@@ -11,4 +11,4 @@ class CustomUserCreationForm(UserCreationForm):
         super(CustomUserCreationForm, self).__init__(*args, **kwargs)
         self.fields['username'].widget.attrs.update({'class': 'form-control', 'placeholder': 'Enter username...'})
         self.fields['password1'].widget.attrs.update({'class': 'form-control', 'placeholder': 'Enter password...'})
-        self.fields['password2'].widget.attrs.update({'class': 'form-control', 'placeholder': 'confirm password...'})
+        self.fields['password2'].widget.attrs.update({'class': 'form-control', 'placeholder': 'Confirm password...'})

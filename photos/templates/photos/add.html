@@ -9,6 +9,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 
     <style>
+
         body {
             background-color: black;
         }
@@ -17,9 +18,6 @@
             background-color: #444444;
             color: #EDEDED;
         }
-
-
-        
 
     </style>
 </head>
@@ -33,16 +31,12 @@
                         {% csrf_token %}
                         <div class="form-group m-3 form-header">
                             {% if request.user.is_authenticated %}
-                            <h4><label>Uploading as {{request.user}}</label></h4>
-                            <input name="submitter" type="hidden" value="{{request.user}}">
+                                <h4><label>Uploading as {{request.user}}</label></h4>
+                                <input name="submitter" type="hidden" value="{{request.user}}">
                             {% else %}
-                            <h4><label>Uploading as anonymous</label></h4>
-                            
-                            
-                            <input name="submitter" type="hidden" value="anonymous">
+                                <h4><label>Uploading as anonymous</label></h4>
+                                <input name="submitter" type="hidden" value="anonymous">
                             {% endif %}
-                            <!--<label>Description</label>
-                            <input required name="description" type="text" placeholder="Enter a description" class="form-control">-->
                         </div>
 
                         <div class="form-group m-3">
@@ -65,7 +59,7 @@
 
                         <div class="form-group m-3">
                             <label>Upload Image</label>
-                            <input required name="image" type="file" class="form-control" id="inputGroupFile01">
+                            <input required name="images" multiple type="file" class="form-control" id="inputGroupFile01">
                         </div>
 
                         <button type="submit" class="btn btn-primary m-3">Submit</button>
@@ -74,7 +68,6 @@
                 </div>
             </div>
         </div>
-
     </div>
 </body>
 </html>
