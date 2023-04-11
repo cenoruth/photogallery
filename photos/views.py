@@ -53,13 +53,13 @@ def gallery(request):
     else:
         photos = Photo.objects.filter(category__name=category)
 
-    paginator = Paginator(photos, 10)
-    try:
-        photos_page = paginator.page(page)
-    except PageNotAnInteger:
-        photos_page = paginator.page(1)
-    except EmptyPage:
-        photos_page = paginator.page(paginator.num_pages)
+    #paginator = Paginator(photos, 10)
+    #try:
+    #    photos_page = paginator.page(page)
+    #except PageNotAnInteger:
+    #    photos_page = paginator.page(1)
+    #except EmptyPage:
+    #    photos_page = paginator.page(paginator.num_pages)
 
     categories = Category.objects.all()
     context = {'categories': categories, 'photos': photos}

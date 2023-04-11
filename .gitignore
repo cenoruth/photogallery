@@ -1,2 +1,5 @@
 /venv
+/static/images
+/staticfiles
 *.pyc
+db.sqlite3
